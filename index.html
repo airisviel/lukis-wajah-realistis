@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="img/kartu.jpeg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airisviel De Arte - Jasa Lukis</title>
+    <meta name="description" content="Jasa lukis wajah realistis dengan pensil berkualitas tinggi. Hadiah unik dan berkesan untuk orang terkasih.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fafafa;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #e74c3c;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .bar {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 3px 0;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23f8f9fa" width="1200" height="600"/><path fill="%23dee2e6" d="M0,300 Q300,200 600,300 T1200,300 V600 H0 Z"/></svg>');
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #e74c3c;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #c0392b;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+        }
+
+        /* About Section */
+        .about {
+            background: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-text h3 {
+            color: #e74c3c;
+            margin-bottom: 1rem;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .about-image img {
+            max-width: 70%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Services Section */
+        .services {
+            background: #f8f9fa;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            color: #e74c3c;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            background: white;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-overlay span {
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        /* Modal */
+        .modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    overflow: auto; /* Tambahkan scroll jika dibutuhkan */
+}
+
+.modal-content {
+    position: relative;
+    margin: 2% auto; /* Kurangi margin dari 5% ke 2% */
+    max-width: 90%;
+    max-height: 90%; /* Ubah dari 80% ke 90% */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh; /* Pastikan ada ruang vertikal */
+}
+
+.modal-content img {
+    max-width: 100%;
+    max-height: 90vh; /* Batasi tinggi maksimum relatif terhadap viewport */
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+    object-fit: contain; /* Pastikan gambar tidak terpotong */
+}
+
+.close {
+    position: fixed; /* Ubah dari absolute ke fixed */
+    top: 20px; /* Posisi dari atas layar */
+    right: 20px; /* Posisi dari kanan layar */
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 2001;
+    background: rgba(0,0,0,0.7);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.close:hover {
+    color: #e74c3c;
+    background: rgba(231,76,60,0.8);
+    transform: scale(1.1);
+}
+
+/* Responsive untuk modal */
+@media (max-width: 768px) {
+    .modal-content {
+        margin: 5% auto;
+        max-width: 95%;
+        max-height: 90%;
+    }
+    
+    .modal-content img {
+        max-height: 80vh;
+    }
+    
+    .close {
+        top: 15px;
+        right: 15px;
+        font-size: 35px;
+        width: 45px;
+        height: 45px;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-content {
+        margin: 3% auto;
+    }
+    
+    .modal-content img {
+        max-height: 75vh;
+    }
+    
+    .close {
+        top: 10px;
+        right: 10px;
+        font-size: 30px;
+        width: 40px;
+        height: 40px;
+    }
+}
+
+        /* Process Section */
+        .process {
+            background: #f8f9fa;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: #e74c3c;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: white;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-form {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #e74c3c;
+        }
+
+        .submit-btn {
+            background: #e74c3c;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #c0392b;
+        }
+
+        .contact-info {
+            padding: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            color: #e74c3c;
+            width: 30px;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .social-links {
+            margin: 1rem 0;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 1rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #e74c3c;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: #2c3e50;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: left 0.3s;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            nav {
+                padding: 0 1rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid,
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">Airisviel De Arte</div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#services">Layanan</a></li>
+                <li><a href="#portfolio">Portofolio</a></li>
+                <li><a href="#process">Proses</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+            <div class="menu-toggle" id="menu-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Lukis Wajah Realistis</h1>
+            <p>Abadikan momen berharga dengan lukisan wajah realistis menggunakan pensil. Hadiah unik dan berkesan untuk orang terkasih.</p>
+            <a href="#contact" class="cta-button">Pesan Sekarang</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">Tentang Kami</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Seniman Profesional yang Sudah Berpengalaman</h3>
+                    <p>Kami adalah seniman profesional yang berspesialisasi dalam lukisan wajah realistis menggunakan pensil. Dengan pengalaman lebih dari 5 tahun, kami telah melayani klien dengan hasil yang memuaskan.</p>
+                    <p>Setiap lukisan dibuat dengan penuh perhatian terhadap detail, menggunakan teknik shading dan blending yang sempurna untuk menghasilkan karya seni yang benar-benar mirip dengan foto asli.</p>
+                    <p>Komitmen kami adalah memberikan hasil terbaik dengan kualitas yang dapat bertahan lama dan menjadi kenangan indah untuk keluarga Anda.</p>
+                </div>
+                <div class="about-image">
+                    <img src="img/kartu.jpeg" alt="Seniman sedang bekerja">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Layanan Kami</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">👤</div>
+                    <h3>Portrait Tunggal</h3>
+                    <p>Lukisan wajah realistis untuk satu orang dengan detail yang sempurna. Cocok untuk hadiah personal atau kenang-kenangan.</p>
+                    <div class="price">Rp 150.000</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">👥</div>
+                    <h3>Portrait Couple</h3>
+                    <p>Lukisan romantis untuk pasangan dengan komposisi yang harmonis. Hadiah perfect untuk anniversary atau pernikahan.</p>
+                    <div class="price">Rp 250.000</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">👨‍👩‍👧‍👦</div>
+                    <h3>Portrait Keluarga</h3>
+                    <p>Lukisan keluarga dengan 3 orang. Abadikan kebahagiaan keluarga dalam sebuah karya seni yang indah.</p>
+                    <div class="price">Rp 350.000</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">👨‍👩‍👧‍👦</div>
+                    <h3>Portrait keluarga lebih dari 3 orang</h3>
+                    <p>Lukisan keluarga lebih 3 orang. Abadikan kebahagiaan keluarga dalam sebuah karya seni yang indah.</p>
+                    <div class="price">Rp 350.000 (per 3 orang) + Rp 50.000 (per 1 orang tambahan) </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">⭐</div>
+                    <h3>Lukisan + Video Pembuatan + Foto</h3>
+                    <p>1 lukisan + versi digital file foto lukisan HD + video timelapse proses pengerjaan</p>
+                    <div class="price">Rp 500.000</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">⚡</div>
+                    <h3>Express Service</h3>
+                    <p>Layanan cepat 1-2 hari kerja dengan kualitas tetap terjaga. Cocok untuk hadiah mendadak.</p>
+                    <div class="price">harga asli + Rp 100.000</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <h2 class="section-title">Portofolio Karya</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item" onclick="openModal('modal1')">
+                    <img src="img/1.jpeg" alt="Portrait Pria">
+                    <div class="portfolio-overlay">
+                        <span>Klik untuk perbesar</span>
+                    </div>
+                </div>
+                <div class="portfolio-item" onclick="openModal('modal2')">
+                    <img src="img/2.jpeg" alt="Portrait Wanita">
+                    <div class="portfolio-overlay">
+                        <span>Klik untuk perbesar</span>
+                    </div>
+                </div>
+                <div class="portfolio-item" onclick="openModal('modal3')">
+                    <img src="img/3.jpeg" alt="Portrait Couple">
+                    <div class="portfolio-overlay">
+                        <span>Klik untuk perbesar</span>
+                    </div>
+                </div>
+                <div class="portfolio-item" onclick="openModal('modal4')">
+                    <img src="img/4.jpeg" alt="Portrait Keluarga">
+                    <div class="portfolio-overlay">
+                        <span>Klik untuk perbesar</span>
+                    </div>
+                </div>
+                <div class="portfolio-item" onclick="openModal('modal5')">
+                    <img src="img/5.jpeg" alt="Portrait dengan Pet">
+                    <div class="portfolio-overlay">
+                        <span>Klik untuk perbesar</span>
+                    </div>
+                </div>
+                <div class="portfolio-item" onclick="openModal('modal6')">
+                    <img src="img/6.jpeg" alt="Custom Premium">
+                    <div class="portfolio-overlay">
+                        <span>Klik untuk perbesar</span>
+                    </div>
+                </div>
+                <div class="portfolio-item" onclick="openModal('modal7')">
+                    <img src="img/7.jpeg" alt="Custom Premium">
+                    <div class="portfolio-overlay">
+                        <span>Klik untuk perbesar</span>
+                    </div>
+                </div>
+                <div class="portfolio-item" onclick="openModal('modal8')">
+                    <img src="img/8.jpeg" alt="Custom Premium">
+                    <div class="portfolio-overlay">
+                        <span>Klik untuk perbesar</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modals for Portfolio -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal1')">&times;</span>
+            <img src="img/1.jpeg" alt="Portrait Pria Detail">
+        </div>
+    </div>
+
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal2')">&times;</span>
+            <img src="img/2.jpeg" alt="Portrait Wanita Detail">
+        </div>
+    </div>
+
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal3')">&times;</span>
+            <img src="img/3.jpeg" alt="Portrait Couple Detail">
+        </div>
+    </div>
+
+    <div id="modal4" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal4')">&times;</span>
+            <img src="img/4.jpeg" alt="Portrait Keluarga Detail">
+        </div>
+    </div>
+
+    <div id="modal5" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal5')">&times;</span>
+            <img src="img/5.jpeg" alt="Portrait Pet Detail">
+        </div>
+    </div>
+
+    <div id="modal6" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal6')">&times;</span>
+            <img src="img/6.jpeg" alt="Custom Premium Detail">
+        </div>
+    </div>
+
+    <div id="modal7" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal7')">&times;</span>
+            <img src="img/7.jpeg" alt="Custom Premium Detail">
+        </div>
+    </div>
+
+    <div id="modal8" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal8')">&times;</span>
+            <img src="img/8.jpeg" alt="Custom Premium Detail">
+        </div>
+    </div>
+
+    <!-- Process Section -->
+    <section class="process" id="process">
+        <div class="container">
+            <h2 class="section-title">Proses Pemesanan</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Konsultasi & Pemesanan</h3>
+                    <p>Hubungi kami melalui WhatsApp atau form kontak. Diskusikan kebutuhan, ukuran, dan detail khusus yang Anda inginkan.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Kirim Foto Referensi</h3>
+                    <p>Kirimkan foto dengan resolusi tinggi dan pencahayaan yang baik.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Lakukan Pembayaran</h3>
+                    <p>Lakukan pembayaran ke nomor rekening yang tersedia sebagai konfirmasi pesanan. Kami akan mulai proses pembuatan setelah pembayaran. Informasi nomor rekening bisa melalaui chat WhatsApp.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Proses Menggambar</h3>
+                    <p>Kami mulai mengerjakan pesanan. Proses memakan waktu 4-14 hari kerja tergantung banyaknya pessanan yang masuk</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- Testimonials Section -->
+<section class="testimonials" style="background: white; padding: 80px 0;">
+    <div class="container">
+        <h2 class="section-title" style="text-align:center; margin-bottom:40px;">Testimoni Pelanggan</h2>
+        <div class="testimonials-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+            
+            <!-- Testimoni 1 -->
+            <div class="testimonial-card" style="background: #f8f9fa; padding: 1rem; border-radius: 10px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                <img src="/img/komen2.png" alt="Testimoni Pelanggan 1" style="max-width:100%; border-radius:10px; margin-bottom:1rem;">
+                <p style="font-style: italic;">"Keren Sangat Detail 😍. Kapan" order lagi 😍"</p>
+                <div style="font-size: 1.5rem; margin-top:0.5rem;">⭐⭐⭐⭐⭐</div>
+            </div>
+
+            <!-- Testimoni 2 -->
+            <div class="testimonial-card" style="background: #f8f9fa; padding: 1rem; border-radius: 10px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                <img src="/img/komen1.png" alt="Testimoni Pelanggan 2" style="max-width:100%; border-radius:10px; margin-bottom:1rem;">
+                <p style="font-style: italic;">"Kualitas bukan kaleng-kaleng ini mah 😭, warnanya pekat banget, mudah²an selalu dipertahankan."</p>
+                <div style="font-size: 1.5rem; margin-top:0.5rem;">⭐⭐⭐⭐⭐</div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+    <!-- FAQ Section -->
+    <section class="faq" style="background: #f8f9fa; padding: 80px 0;">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-container" style="max-width: 800px; margin: 0 auto;">
+                <div class="faq-item" style="background: white; margin-bottom: 1rem; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                    <div class="faq-question" style="padding: 1.5rem; background: #2c3e50; color: white; cursor: pointer; font-weight: bold;" onclick="toggleFaq(1)">
+                        Berapa lama proses pembuatan lukisan?
+                        <span style="float: right;">+</span>
+                    </div>
+                    <div class="faq-answer" id="faq1" style="display: none; padding: 1.5rem; color: #333;">
+                        Proses pembuatan lukisan memakan waktu 4-14 hari kerja, tergantung kompleksitas dan jumlah subjek. Untuk layanan express, bisa diselesaikan dalam 1-2 hari kerja.
+                    </div>
+                </div>
+                <div class="faq-item" style="background: white; margin-bottom: 1rem; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                    <div class="faq-question" style="padding: 1.5rem; background: #2c3e50; color: white; cursor: pointer; font-weight: bold;" onclick="toggleFaq(2)">
+                        Ukuran kertas apa saja yang tersedia?
+                        <span style="float: right;">+</span>
+                    </div>
+                    <div class="faq-answer" id="faq2" style="display: none; padding: 1.5rem; color: #333;">
+                        Kami menyediakan ukuran A4 (21x30cm).
+                    </div>
+                </div>
+                <div class="faq-item" style="background: white; margin-bottom: 1rem; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                    <div class="faq-question" style="padding: 1.5rem; background: #2c3e50; color: white; cursor: pointer; font-weight: bold;" onclick="toggleFaq(3)">
+                        Apakah harga sudah termasuk dengan bingkai?
+                        <span style="float: right;">+</span>
+                    </div>
+                    <div class="faq-answer" id="faq3" style="display: none; padding: 1.5rem; color: #333;">
+                        Ya, kami sudah menambahkan bingkai ketika pengiriman.
+                    </div>
+                </div>
+                <div class="faq-item" style="background: white; margin-bottom: 1rem; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                    <div class="faq-question" style="padding: 1.5rem; background: #2c3e50; color: white; cursor: pointer; font-weight: bold;" onclick="toggleFaq(4)">
+                        Bagaimana cara pembayaran?
+                        <span style="float: right;">+</span>
+                    </div>
+                    <div class="faq-answer" id="faq4" style="display: none; padding: 1.5rem; color: #333;">
+                        Pembayaran bisa langsung transfer ke nomor rekening yang tersedia. Informasi rekening bisa melalui chat WhatsApp.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Hubungi Kami</h2>
+            <div class="contact-content">
+                <div class="contact-form">
+                    <h3 style="margin-bottom: 1.5rem; color: #2c3e50;">Form Pemesanan</h3>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Nama Lengkap</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Nomor WhatsApp</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Jenis Layanan</label>
+                            <select id="service" name="service" required>
+                                <option value="">Pilih Layanan</option>
+                                <option value="single">Portrait Tunggal - Rp 150.000</option>
+                                <option value="couple">Portrait Couple - Rp 250.000</option>
+                                <option value="Potrait 3 orang">Portrait Keluarga 3 orang - Rp 350.000</option>
+                                <option value="lebih dari 3 Orang">Portrait keluarga lebih dari 3 orang - Rp 350.000/3 oang + Rp 50.000/1 orang tambahan</option>
+                                <option value="Lukisan + Video Pembuatan">Lukisan + Video Pembuatan + Foto - Rp 500.000</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="size">Ukuran Kertas</label>
+                            <select id="size" name="size" required>
+                                <option value="">Pilih Ukuran</option>
+                                <option value="a4">A4 (21x30cm)</option>
+                                <!-- <option value="a3">A3 (30x42cm)</option>
+                                <option value="custom">Custom Size</option> -->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="express">Layanan Express (+Rp 100.000)</label>
+                            <select id="express" name="express">
+                                <option value="no">Tidak</option>
+                                <option value="yes">Ya, saya butuh cepat</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Pesan Tambahan</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Ceritakan detail khusus yang ingin ditambahkan..."></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Kirim Pesanan</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <h3 style="margin-bottom: 2rem; color: #2c3e50;">Informasi Kontak</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div>
+                            <strong>WhatsApp</strong><br>
+                            +62 877-4828-2004
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div>
+                            <strong>Email</strong><br>
+                            risnanto122@gmail.com
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <strong>Alamat</strong><br>
+                            Kecamatan Batang, Jawa Tengah<br>
+                            Indonesia
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">⏰</div>
+                        <div>
+                            <strong>Jam Operasional</strong><br>
+                            Senin - Sabtu: 08:00 - 20:00<br>
+                            Minggu: 10:00 - 18:00
+                        </div>
+                    </div>
+                    <div style="margin-top: 2rem;">
+                        <h4 style="color: #2c3e50; margin-bottom: 1rem;">Metode Pembayaran</h4>
+                        <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+                            <div style="background: #e74c3c; color: white; padding: 0.5rem 1rem; border-radius: 5px; font-size: 0.9rem;">Transfer Bank</div>
+                            <!-- <div style="background: #3498db; color: white; padding: 0.5rem 1rem; border-radius: 5px; font-size: 0.9rem;">Bank BRI</div>
+                            <div style="background: #e67e22; color: white; padding: 0.5rem 1rem; border-radius: 5px; font-size: 0.9rem;">GoPay</div>
+                            <div style="background: #9b59b6; color: white; padding: 0.5rem 1rem; border-radius: 5px; font-size: 0.9rem;">OVO</div> -->
+                            <div style="background: #1abc9c; color: white; padding: 0.5rem 1rem; border-radius: 5px; font-size: 0.9rem;">Transfer E-Wallet</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Footer -->
+    <footer style="background:#062a4e; padding:40px 0; text-align:center;">
+    <div class="container">
+        <div class="logo" style="font-size: 1.5rem; margin-bottom: 1rem; font-weight: bold;">Airisviel De Arte</div>
+        <p>Jasa lukis wajah realistis dengan kualitas terbaik. Kunjungi media sosial kami dengan cara klik ikon dibawah</p>
+        
+        <div class="social-links" style="margin: 20px 0;">
+            <a href="https://wa.me/6287748282004" target="_blank" style="margin:0 10px; font-size:1.8rem; color:#25D366;">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="https://www.instagram.com/airisviel.de.arte?igsh=MTFmYjZneGVvaXlrMA==" target="_blank" style="margin:0 10px; font-size:1.8rem; color:#E4405F;">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.tiktok.com/@airisviel.de.arte?_t=ZS-8zjrN77i52L&_r=1" target="_blank" style="margin:0 10px; font-size:1.8rem; color:#000000;">
+                <i class="fab fa-tiktok"></i>
+            </a>
+            <a href="https://youtube.com/@airisvieldearte?si=dNbzFKfhU8A6c5z2" target="_blank" style="margin:0 10px; font-size:1.8rem; color:#FF0000;">
+                <i class="fab fa-youtube"></i>
+            </a>
+            <a href="https://s.shopee.co.id/7KnbDru8tJ" target="_blank" style="margin:0 10px; font-size:1.8rem; color:#EE4D2D;">
+                <i class="fas fa-shopping-bag"></i>
+            </a>
+        </div>
+
+        <p style="margin-top:20px; font-size:0.9rem; color:#ffffff;">&copy; 2025 Airisviel De Arte. Kecamatan Batang, Jawa Tengah, Indonesia.</p>
+    </div>
+</footer>
+
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.getElementById('nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on links
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Modal functions
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+
+        // FAQ Toggle
+        function toggleFaq(num) {
+            const answer = document.getElementById('faq' + num);
+            const question = answer.previousElementSibling;
+            const icon = question.querySelector('span');
+            
+            if (answer.style.display === 'none' || answer.style.display === '') {
+                answer.style.display = 'block';
+                icon.textContent = '-';
+            } else {
+                answer.style.display = 'none';
+                icon.textContent = '+';
+            }
+        }
+
+        // Contact form handling
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Create WhatsApp message
+            let message = `*PESANAN LUKIS WAJAH REALISTIS*\n\n`;
+            message += `📋 *Detail Pesanan:*\n`;
+            message += `• Nama: ${data.name}\n`;
+            message += `• Email: ${data.email}\n`;
+            message += `• Layanan: ${data.service}\n`;
+            message += `• Ukuran: ${data.size}\n`;
+            message += `• Express: ${data.express}\n\n`;
+            
+            if (data.message) {
+                message += `💬 *Pesan Tambahan:*\n${data.message}\n\n`;
+            }
+            
+            message += `Mohon info lebih lanjut untuk proses pemesanan. Terima kasih! 🙏`;
+            
+            const whatsappUrl = `https://wa.me/6287748282004?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+            
+            // Reset form
+            this.reset();
+            alert('Terima kasih! Anda akan diarahkan ke WhatsApp untuk melanjutkan pemesanan.');
+        });
+
+        // Header background change on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(44, 62, 80, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #2c3e50, #34495e)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe sections for scroll animations
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
