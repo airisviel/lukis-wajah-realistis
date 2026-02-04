@@ -901,15 +901,15 @@
                                 <option value="4 Wajah A3"> Untuk Keluarga 4 Wajah A3 - Rp 400.000</option>
                             </select>
                         </div>
-                        <div class="form-group">
-                            <!-- <label for="size">Ukuran Kertas</label>
+                        <!-- div class="form-group"
+                            <label for="size">Ukuran Kertas</label>
                             <select id="size" name="size" required>
                                 <option value="">Pilih Ukuran</option>
                                 <option value="a4">A4 (21x30cm)</option>
                                 <option value="a3">A3 (30x42cm)</option>
                                 <option value="custom">Custom Size</option>
-                            </select> -->
-                        </div>
+                            </select>
+                        /div -->
                         <div class="form-group">
                             <label for="express">Layanan Express (+Rp 100.000)</label>
                             <select id="express" name="express">
@@ -1081,6 +1081,7 @@
             message += `📋 *Detail Pesanan:*\n`;
             message += `• Nama: ${data.name}\n`;
             message += `• Email: ${data.email}\n`;
+            message += `• Telepon: ${data.phone}\n`;
             message += `• Layanan: ${data.service}\n`;
             message += `• Ukuran: ${data.size}\n`;
             message += `• Express: ${data.express}\n\n`;
@@ -1137,6 +1138,7 @@
 </body>
 
 </html>
+
 
 
 
